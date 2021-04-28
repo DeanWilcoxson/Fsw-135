@@ -18,6 +18,17 @@ inventoryRouter.get("/", (req, res, next) => {
   });
 });
 
+inventoryRouter.get("/:productId", (req, res, next) => {
+  const productId = req.params.productId;
+  const foundProduct = Product.find((product) => product.id === productId);
+  if (!foundProduct) {
+    const error = new Error(`The item with id ${productID} was not found`);
+    res.status(500);
+    return next(error);
+  }
+  return res.status(200).send(foundProduct);
+});
+
 inventoryRouter.post("/", (req, res, next) => {
   const newProduct = new Product(req.body);
   newProduct.save((err, savedProduct) => {
@@ -48,18 +59,17 @@ inventoryRouter.delete("/:productId", (req, res, next) => {
 
 inventoryRouter.put("/:productId", (req, res, next) => {
   Product.findOneAndUpdate(
-    { _id: req.params.productId},
+    { _id: req.params.productId },
     req.body,
-    {new: true},
+    { new: true },
     (err, updatedProduct) => {
-      if(err){
-        res.status(500)
-        return next(err)
+      if (err) {
+        res.status(500);
+        return next(err);
       }
-      return res.status(201).send(updatedProduct)
+      return res.status(201).send(updatedProduct);
     }
-  )  
-})
-
+  );
+});
 
 module.exports = inventoryRouter;
