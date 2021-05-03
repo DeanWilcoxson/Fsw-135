@@ -46,17 +46,6 @@ router.delete("/:issueID", (req, res, next) => {
   });
 });
 
-router.delete("/:userID", (req, res, next) => {
-  User.findOneAndDelete({ _id: req.params.userID }, (err, deletedItem) => {
-    if (err) {
-      res.status(500);
-      return next(err);
-    }
-    return res
-      .status(200)
-      .send(`Successfully deleted item ${deletedItem._id} from the database`);
-  });
-});
 
 router.put("/:issueID", (req, res, next) => {
   Issue.findOneAndUpdate(
