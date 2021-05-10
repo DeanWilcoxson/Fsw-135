@@ -26,12 +26,13 @@ authRouter.post("/signup", (req, res, next) => {
 })
 // Login
 authRouter.post("/login", (req, res, next) => {
-  User.findOne({ username: req.body.username.toLowerCase() }, (err, user) => {
+  User.findOne({ username: req.body.username }, (err, user) => {
     if(err){
       res.status(500)
       return next(err)
     }
     if(!user || req.body.password !== user.password){
+      // console.log(req.body.password, user)
       res.status(403)
       return next(new Error('Invalid Credentials'))
     }
