@@ -3,7 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 import Navbar from './Components/Navbar.js'
 import Auth from './Components/Auth.js'
 import Profile from './Components/Profile.js'
-import Public from './Components/Public.js'
+import Public from './Components/public.js'
 import { UserContext } from './Context/userContext.js'
 
 export default function App(){

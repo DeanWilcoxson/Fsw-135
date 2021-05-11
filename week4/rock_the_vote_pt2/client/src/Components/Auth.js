@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react'
 import AuthForm from './AuthForm'
-import { UserContext } from './../Context/userContext';
+import { UserContext } from '../Context/userContext';
+import IssueList from './IssueList';
 
 const initInputs = { username: "", password: "" }
 
@@ -30,7 +31,7 @@ export default function Auth(){
 
   return (
     <div className="auth-container">
-      <h1>Todo App</h1>
+      <h1>IssueList</h1>
       { !toggle ?
         <>
           <AuthForm 
