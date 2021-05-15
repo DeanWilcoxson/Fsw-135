@@ -1,9 +1,7 @@
 import React from "react";
 
 export default function Issue(props) {
-  const { title, description, imgUrl, 
-    // _id 
-  } = props;
+  const { title, description, imgUrl, _id } = props;
   return (
     <div className="todo">
       <h1>{title}</h1>
