@@ -6,7 +6,7 @@ const expressJwt = require("express-jwt");
 require("dotenv").config();
 
 mongoose.connect(
-  "mongodb://localhost:27017/inventorydb",
+  "mongodb://localhost:27017/rockthevote",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,

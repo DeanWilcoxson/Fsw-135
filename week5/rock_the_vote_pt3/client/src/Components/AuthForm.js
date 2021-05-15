@@ -1,6 +1,11 @@
 import React from "react";
 export default function AuthForm(props) {
-  const { handleSubmit, btnText, handleChange, inputs } = props;
+  const {
+    handleSubmit,
+    btnText,
+    handleChange,
+    inputs: { username, password },
+  } = props;
   return (
     <div>
       <form>
@@ -8,21 +13,17 @@ export default function AuthForm(props) {
           type="text"
           onChange={handleChange}
           name="username"
-          value={inputs.username}
+          value={username}
           placeholder="User Name"
         ></input>
         <input
           type="text"
           onChange={handleChange}
           name="password"
-          value={inputs.password}
+          value={password}
           placeholder="Password"
         ></input>
-        <button
-          onClick={handleSubmit}
-        >
-          {btnText}
-        </button>
+        <button onClick={handleSubmit}>{btnText}</button>
       </form>
     </div>
   );

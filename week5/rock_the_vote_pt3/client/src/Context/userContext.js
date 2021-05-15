@@ -10,18 +10,21 @@ userAxios.interceptors.request.use((config) => {
 });
 
 export default function UserProvider(props) {
-  const initialState = { user: {}, token: "" };
+  const initialState = {
+    user: JSON.parse(localStorage.getItem("user")) || {},
+    token: localStorage.getItem("token") || "",
+  };
   const [userState, setUserState] = useState(initialState);
-  const issueState = { userIssues: [], issues:[] };
+  const issueState = { userIssues: [], issues: [] };
   const [issues, setIssues] = useState(issueState);
 
-  function signUp(credentials) {
-    console.log(credentials)
+  function signup(credentials) {
+    console.log(credentials);
     axios
       .post("/auth/signup", credentials)
       .then((res) => {
         const { user, token } = res.data;
-        console.log(user, token)
+        console.log(res);
         localStorage.setItem("token", token);
         localStorage.setItem("user", JSON.stringify(user));
         setUserState((prevUserState) => ({
@@ -34,10 +37,11 @@ export default function UserProvider(props) {
   }
 
   function login(credentials) {
-    console.log('login')
+    console.log("login");
     axios
       .post("/auth/login", credentials)
       .then((res) => {
+        console.log(res);
         const { user, token } = res.data;
         localStorage.setItem("token", token);
         localStorage.setItem("user", JSON.stringify(user));
@@ -57,7 +61,6 @@ export default function UserProvider(props) {
     setUserState({
       user: {},
       token: "",
-      todos: [],
     });
   }
 
@@ -86,7 +89,7 @@ export default function UserProvider(props) {
   }
   return (
     <UserContext.Provider
-      value={{ ...userState, signUp, login, logout, addIssue, issues }}
+      value={{ ...userState, signup, login, logout, addIssue, issues }}
     >
       {props.children}
     </UserContext.Provider>

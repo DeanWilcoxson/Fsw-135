@@ -9,7 +9,7 @@ export default function Auth(){
   const [inputs, setInputs] = useState(initInputs)
   const [toggle, setToggle] = useState(false)
 
-  const { signUp, login } = useContext(UserContext)
+  const { signup, login } = useContext(UserContext)
 
   function handleChange(e){
     const {name, value} = e.target
@@ -21,7 +21,8 @@ export default function Auth(){
 
   function handleSignup(e){
     e.preventDefault()
-    signUp(inputs)
+    signup(inputs)
+    console.log(signup)
   }
 
   function handleLogin(e){
@@ -48,8 +49,9 @@ export default function Auth(){
             handleChange={handleChange}
             handleSubmit={handleLogin}
             inputs={inputs}
-            btnText="Login"
+            btnText="Sign in"
           />
+          {console.log(inputs)}
           <button onClick={() => setToggle(prev => !prev)}>Not a member?</button>
         </>
       }

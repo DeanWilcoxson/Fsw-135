@@ -11,7 +11,6 @@ export default function App() {
   return (
     <div>
       <Navbar logout={logout} />
-
       <Switch>
         <Route
           exact

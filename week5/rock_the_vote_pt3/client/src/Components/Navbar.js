@@ -1,13 +1,19 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
-export default function Navbar(props){
-  const { logout } = props
+export default function Navbar(props) {
+  const { logout } = props;
   return (
     <div className="navbar">
-      <Link to="/profile">Profile</Link>
-      <Link to="/public">Public</Link>
-      <button onClick={logout}>Logout</button>
+      <button className="navBtn">
+        <Link to="/profile">Profile</Link>
+      </button>
+      <button className="navBtn">
+        <Link to="/public">Public</Link>
+      </button>
+      <button onClick={logout} className="navBtn">
+        Logout
+      </button>
     </div>
-  )
+  );
 }
