@@ -12,10 +12,12 @@ const userSchema = new Schema({
   isAdmin: {
     type: Boolean,
     required: true,
+    default: false
   },
   memberSince: {
     type: String,
     required: true,
+    default: Date.now
   },
 });
 module.exports = mongoose.model("user", userSchema);

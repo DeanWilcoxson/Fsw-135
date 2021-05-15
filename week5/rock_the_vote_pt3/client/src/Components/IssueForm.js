@@ -6,7 +6,7 @@ const initInputs = {
   imgUrl: ""
 }
 
-export default function TodoForm(props){
+export default function IssueForm(props){
   const [inputs, setInputs] = useState(initInputs)
   const { addIssue } = props
 
@@ -45,7 +45,7 @@ export default function TodoForm(props){
         value={imgUrl} 
         onChange={handleChange} 
         placeholder="Image Url"/>
-      <button>Add Todo</button>
+      <button>Add Issue</button>
     </form>
   )
 }

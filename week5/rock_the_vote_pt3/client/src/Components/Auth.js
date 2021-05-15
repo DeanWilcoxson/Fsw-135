@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import AuthForm from './AuthForm'
 import { UserContext } from '../Context/userContext';
-import IssueList from './IssueList';
+// import IssueList from './IssueList';
 
 const initInputs = { username: "", password: "" }
 
@@ -9,7 +9,7 @@ export default function Auth(){
   const [inputs, setInputs] = useState(initInputs)
   const [toggle, setToggle] = useState(false)
 
-  const { signup, login } = useContext(UserContext)
+  const { signUp, login } = useContext(UserContext)
 
   function handleChange(e){
     const {name, value} = e.target
@@ -21,7 +21,7 @@ export default function Auth(){
 
   function handleSignup(e){
     e.preventDefault()
-    signup(inputs)
+    signUp(inputs)
   }
 
   function handleLogin(e){
@@ -40,7 +40,7 @@ export default function Auth(){
             inputs={inputs}
             btnText="Sign up"
           />
-          <p onClick={() => setToggle(prev => !prev)}>Already a member?</p>
+          <button onClick={() => setToggle(prev => !prev)}>Already a member?</button>
         </>
       :
         <>
@@ -50,7 +50,7 @@ export default function Auth(){
             inputs={inputs}
             btnText="Login"
           />
-          <p onClick={() => setToggle(prev => !prev)}>Not a member?</p>
+          <button onClick={() => setToggle(prev => !prev)}>Not a member?</button>
         </>
       }
     </div>

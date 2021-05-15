@@ -1,6 +1,6 @@
 # Week 5 Lecture - FSW135
 
-Learnign goals for weeks 5 & 6 => Understand the entire data flow within a MERN stack authetication cycle.
+Learning goals for weeks 5 & 6 => Understand the entire data flow within a M.E.R.N stack authentication cycle.
 
 ## Agenda
 
@@ -134,6 +134,6 @@ In addition to making code reuse and code organization more difficult, we’ve f
 
 Additionally, React has been out for about five years, and we want to make sure it stays relevant in the next five years. As Svelte, Angular, Glimmer, and others show, ahead-of-time compilation of components has a lot of future potential. Especially if it’s not limited to templates. Recently, we’ve been experimenting with component folding using Prepack, and we’ve seen promising early results. However, we found that class components can encourage unintentional patterns that make these optimizations fall back to a slower path. Classes present issues for today’s tools, too. For example, classes don’t minify very well, and they make hot reloading flaky and unreliable. We want to present an API that makes it more likely for code to stay on the optimizable path.
 
-To solve these problems, Hooks let you use more of React’s features without classes. Conceptually, React components have always been closer to functions. Hooks embrace functions, but without sacrificing the practical spirit of React. Hooks provide access to imperative escape hatches and don’t require you to learn complex functional or reactive programming techniques.
+To solve these problems, Hooks let you use more of Reacts features without classes. Conceptually, React components have always been closer to functions. Hooks embrace functions, but without sacrificing the practical spirit of React. Hooks provide access to imperative escape hatches and don’t require you to learn complex functional or reactive programming techniques.
 
 [Hooks FAQ](https://reactjs.org/docs/hooks-faq.html)

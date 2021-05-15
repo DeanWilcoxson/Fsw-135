@@ -17,9 +17,15 @@ const issueSchema = new Schema({
     type: Number,
     required: false,
   },
-  userID: {
-    type: String,
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "user",
     required: true,
   },
+  postDate: {
+    type:String,
+    required: true,
+    default: Date.now
+  }
 });
 module.exports = mongoose.model("issue", issueSchema);

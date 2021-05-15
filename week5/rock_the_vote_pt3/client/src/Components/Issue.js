@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Todo(props){
+export default function Issue(props){
   const { title, description, imgUrl, _id } = props
   return (
     <div className="todo">

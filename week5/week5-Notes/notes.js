@@ -12,7 +12,7 @@
 // token data can be sent from the client in the
 // req.body
 // req.header
-// AND url query paramater 
+// AND url query parameter 
 
 // what makes up a token
 // JWT
