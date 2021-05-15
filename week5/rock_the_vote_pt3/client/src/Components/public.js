@@ -1,6 +1,6 @@
 import React from 'react'
-import IssueList from './IssueList.js'
-import Issue from './Issue.js'
+// import IssueList from './IssueList.js'
+// import Issue from './Issue.js'
 
 export default function Public(){
   return (
