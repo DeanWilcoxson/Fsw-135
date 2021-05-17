@@ -37,7 +37,7 @@ export default function UserProvider(props) {
   }
 
   function login(credentials) {
-    console.log("login");
+    console.log(credentials);
     axios
       .post("/auth/login", credentials)
       .then((res) => {
@@ -49,7 +49,7 @@ export default function UserProvider(props) {
         setUserState((prevUserState) => ({
           ...prevUserState,
           user,
-          token,
+          token
         }));
       })
       .catch((err) => console.log(err.response.data.errMsg));

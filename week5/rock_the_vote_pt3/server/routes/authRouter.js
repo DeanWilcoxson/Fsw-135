@@ -33,7 +33,9 @@ authRouter.post("/login", (req, res, next) => {
       res.status(500);
       return next(err);
     }
-    if (!user || req.body.password !== user.password) {
+    if (!user 
+      // || req.body.password !== user.password
+      ) {
       console.log(req.body.password, user);
       res.status(403);
       return next(new Error(failedLogin));
@@ -47,9 +49,9 @@ authRouter.post("/login", (req, res, next) => {
         res.status(403);
         return next(new Error(failedLogin));
       }
+      const token = jwt.sign(user.withoutPassword(), process.env.SECRET);
+      return res.status(200).send({ token, user: user.withoutPassword() });
     });
-    const token = jwt.sign(user.withoutPassword(), process.env.SECRET);
-    return res.status(200).send({ token, user: user.withoutPassword() });
   });
 });
 module.exports = authRouter;

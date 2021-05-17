@@ -9,6 +9,10 @@ const issueSchema = new Schema({
     type: String,
     required: true,
   },
+  imgUrl:{
+    type: String,
+    required: false
+    },
   upVote: {
     type: Number,
     required: false,
