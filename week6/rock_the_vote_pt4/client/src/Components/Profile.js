@@ -14,10 +14,10 @@ export default function Profile(){
 
   return (
     <div className="profile">
-      <h1>Welcome @{username}!</h1>
-      <h3>Add an Issue</h3>
+      <h1 className="profileUserName">Welcome {username}!</h1>
+      <h3 className="userPost">Add an Issue</h3>
       <IssueForm addIssue={addIssue}/>
-      <h3>Your issues</h3>
+      <h3 className="userIssues">Your issues</h3>
       <IssueList issues={issues}/>
     </div>
   )
