@@ -1,0 +1,74 @@
+body {
+    background-image: url("https://images.unsplash.com/photo-1540908390241-82158ab62887?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTgwOTN8MHwxfHNlYXJjaHwzfHx2b3Rpbmd8ZW58MHx8fHwxNjIxNDAzOTA5&ixlib=rb-1.2.1&q=80&w=1080");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navBtn {
+    color: black;
+    background-color: lightgreen;
+}
+
+.authHeader {
+    text-align: center;
+}
+
+.auth-container {
+    grid-column: 2/3;
+    background-color: rgba(147, 191, 210, 0.724);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.authForm {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.userName {
+    background-color: white;
+    color: black;
+    grid-column: 2/3;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.password {
+    background-color: white;
+    color: black;
+    grid-column: 2/3;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.submitBtn {
+    background-color: white;
+    color: black;
+    grid-column: 2/3;
+}
+
+.errMsg {
+    grid-column: 2/3;
+    background-color: red;
+    color: "white";
+    text-align: "center";
+}
+
+.toggle {
+    background-color: white;
+    color: black;
+}
