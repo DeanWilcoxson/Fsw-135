@@ -16,14 +16,14 @@ export default function UserProvider(props) {
     issues: [],
     userIssues: [],
     errMsg: "",
+    issueComments: [],
   };
   const [userState, setUserState] = useState(initialState);
-  // const issueState = { userIssues: [], issues: [] };
-  // const [issues, setIssues] = useState(issueState);
 
   function handleAuthErr(errMsg) {
     setUserState((prevState) => ({
-      ...prevState, errMsg,
+      ...prevState,
+      errMsg,
     }));
   }
 
@@ -104,6 +104,19 @@ export default function UserProvider(props) {
       .catch((err) => console.log(err.response.data.errMsg));
   }
 
+  function getComments(id) {
+    userAxios
+      .get(`/api/comment/issue/${id}`)
+      .then(res => {
+        console.log(res)
+        setUserState(prevState => ({
+          ...prevState,
+          issueComments: res.data,
+        }));
+      })
+      .catch((err) => console.log(err.response.data.errMsg));
+  }
+
   function addIssue(newUser) {
     userAxios
       .post("/api/issue", newUser)
@@ -112,7 +125,7 @@ export default function UserProvider(props) {
           ...prevState,
           userIssues: [...prevState.userIssues, res.data],
         }));
-        getIssues()
+        getIssues();
       })
       .catch((err) => console.log(err.response.data.errMsg));
   }
@@ -126,9 +139,32 @@ export default function UserProvider(props) {
       .catch((err) => console.log(err.response.data.errMsg));
   }
 
-  function editIssue(issueId) {
+  function upVote(id) {
     userAxios
-      .put(`/api/issue/user/${issueId}`)
+      .put(`/api/issue/upVote/${id}`)
+      .then((res) => {
+        getIssues();
+      })
+      .catch((err) => console.log(err.response.data.errMsg));
+  }
+
+  function downVote(id) {
+    userAxios
+      .put(`/api/issue/downVote/${id}`)
+      .then((res) => {
+        getIssues();
+      })
+      .catch((err) => console.log(err.response.data.errMsg));
+  }
+
+  function commentPost(event, newObject) {
+    const par = event.target.parentNode;
+    const id = par.parentNode.id;
+    newObject.issueId = id;
+    newObject.userId = userState.user._id;
+    console.log(userState.user._id);
+    userAxios
+      .post(`/api/comment`, newObject)
       .then()
       .catch((err) => console.log(err.response.data.errMsg));
   }
@@ -142,10 +178,13 @@ export default function UserProvider(props) {
         logout,
         addIssue,
         deleteIssue,
-        editIssue,
         getUserIssues,
         resetAuthErr,
         getIssues,
+        upVote,
+        downVote,
+        commentPost,
+        getComments,
       }}
     >
       {props.children}

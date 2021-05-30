@@ -34,32 +34,38 @@ export default function Auth() {
     resetAuthErr();
   }
   return (
-    <div className="auth-container">
-      <h1 className="authHeader">Log In / Sign Up</h1>
-      {!toggle ? (
-        <>
-          <AuthForm
-            handleChange={handleChange}
-            handleSubmit={handleSignup}
-            inputs={inputs}
-            btnText="Sign up"
-            errMsg={errMsg}
-          />
-          <button className="toggle" onClick={() => toggleForm()}>Already a member?</button>
-        </>
-      ) : (
-        <>
-          <AuthForm
-            handleChange={handleChange}
-            handleSubmit={handleLogin}
-            inputs={inputs}
-            btnText="Sign in"
-            errMsg={errMsg}
-          />
-          {console.log(inputs)}
-          <button className="toggle" onClick={() => toggleForm()}>Not a member?</button>
-        </>
-      )}
+    <div className="authGrid">
+      <div className="auth-container">
+        <h1 className="authHeader">Log In / Sign Up</h1>
+        {!toggle ? (
+          <>
+            <AuthForm
+              handleChange={handleChange}
+              handleSubmit={handleSignup}
+              inputs={inputs}
+              btnText="Sign up"
+              errMsg={errMsg}
+            />
+            <button className="toggle" onClick={() => toggleForm()}>
+              Already a member?
+            </button>
+          </>
+        ) : (
+          <>
+            <AuthForm
+              handleChange={handleChange}
+              handleSubmit={handleLogin}
+              inputs={inputs}
+              btnText="Sign in"
+              errMsg={errMsg}
+            />
+            {console.log(inputs)}
+            <button className="toggle" onClick={() => toggleForm()}>
+              Not a member?
+            </button>
+          </>
+        )}
+      </div>
     </div>
   );
 }

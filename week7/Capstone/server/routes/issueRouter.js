@@ -56,10 +56,24 @@ router.delete("/:issueID", (req, res, next) => {
   });
 });
 
-router.put("/:issueID", (req, res, next) => {
+router.put("/upVote/:issueID", (req, res, next) => {
   Issue.findOneAndUpdate(
     { _id: req.params.issueID },
-    req.body,
+    {$inc: {upVotes: 1}},
+    { new: true },
+    (err, updatedIssue) => {
+      if (err) {
+        res.status(500);
+        return next(err);
+      }
+      return res.status(201).send(updatedIssue);
+    }
+  );
+});
+router.put("/downVote/:issueID", (req, res, next) => {
+  Issue.findOneAndUpdate(
+    { _id: req.params.issueID },
+    {$inc: {downVotes: 1}},
     { new: true },
     (err, updatedIssue) => {
       if (err) {

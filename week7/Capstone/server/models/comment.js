@@ -7,13 +7,12 @@ const commentSchema = new Schema({
   },
   userId: {
     type: Schema.Types.ObjectId,
-    required: true,
     ref: "user",
+    required: true,
     lowercase: true,
   },
   issueId: {
-    type: Schema.Types.ObjectId,
-    ref: "issue",
+    type: String,
     required: true,
   },
 });

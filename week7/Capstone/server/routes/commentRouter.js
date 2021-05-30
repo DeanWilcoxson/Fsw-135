@@ -12,8 +12,9 @@ router.get("/", (req, res, next) => {
   });
 });
 
-router.get("/:commentID", (req, res, next) => {
-  Comment.findOne({ _id: req.params.commentID }, (err, comment) => {
+router.get("/issue/:issueID", (req, res, next) => {
+  console.log("router")
+  Comment.find({ issueId: req.params.issueId }, (err, comment) => {
     if (err) {
       res.status(500);
       return next(err);

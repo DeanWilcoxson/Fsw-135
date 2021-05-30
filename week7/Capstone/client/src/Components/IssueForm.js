@@ -22,37 +22,40 @@ export default function IssueForm(props) {
     e.preventDefault();
     addIssue(inputs);
     setInputs(initInputs);
-    getIssues()
+    getIssues();
   }
 
   const { title, description, imgUrl } = inputs;
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        className="issueInputTitle"
-        type="text"
-        name="title"
-        value={title}
-        onChange={handleChange}
-        placeholder="Title"
-      />
-      <input
-        className="issueInputDesc"
-        type="text"
-        name="description"
-        value={description}
-        onChange={handleChange}
-        placeholder="Description"
-      />
-      <input
-        className="issueInputImg"
-        type="text"
-        name="imgUrl"
-        value={imgUrl}
-        onChange={handleChange}
-        placeholder="Image Url"
-      />
-      <button className="subIssueBtn">Add Issue</button>
-    </form>
+    <div className="formGrid">
+      <h2 className="addHeader">Add an Issue</h2>
+      <form className="issueForm" onSubmit={handleSubmit}>
+        <input
+          className="issueInputTitle"
+          type="text"
+          name="title"
+          value={title}
+          onChange={handleChange}
+          placeholder="Title"
+        />
+        <input
+          className="issueInputDesc"
+          type="text"
+          name="description"
+          value={description}
+          onChange={handleChange}
+          placeholder="Description"
+        />
+        <input
+          className="issueInputImg"
+          type="text"
+          name="imgUrl"
+          value={imgUrl}
+          onChange={handleChange}
+          placeholder="Image Url"
+        />
+        <button className="subIssueBtn">Add Issue</button>
+      </form>
+    </div>
   );
 }

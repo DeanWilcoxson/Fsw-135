@@ -9,17 +9,17 @@ const issueSchema = new Schema({
     type: String,
     required: true,
   },
-  imgUrl:{
+  imgUrl: {
     type: String,
-    required: false
-    },
-  upVote: {
-    type: Number,
     required: false,
   },
-  downVote: {
+  upVotes: {
     type: Number,
-    required: false,
+    default: 0,
+  },
+  downVotes: {
+    type: Number,
+    default: 0,
   },
   user: {
     type: Schema.Types.ObjectId,
@@ -27,9 +27,9 @@ const issueSchema = new Schema({
     required: true,
   },
   postDate: {
-    type:String,
+    type: String,
     required: true,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 module.exports = mongoose.model("issue", issueSchema);

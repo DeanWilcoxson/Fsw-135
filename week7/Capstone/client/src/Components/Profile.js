@@ -16,7 +16,7 @@ export default function Profile() {
   return (
     <div className="profile">
       <h1 className="profileUserName">Welcome {username}!</h1>
-      <h3 className="userIssues">Your issues</h3>
+      <h2 className="userIssues">Your issues</h2>
       <IssueList userIssues={userIssues} del={deleteIssue}/>
     </div>
   );
