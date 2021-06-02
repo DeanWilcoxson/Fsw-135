@@ -61,23 +61,20 @@ export default function UserProvider(props) {
         const { user, token } = res.data;
         localStorage.setItem("token", token);
         localStorage.setItem("user", JSON.stringify(user));
-        getUserIssues();
         setUserState((prevUserState) => ({
           ...prevUserState,
           user,
           token,
         }));
+        getUserIssues();
       })
-      .catch((err) => handleAuthErr(err.response.data.errMsg));
+      .catch((err) => handleAuthErr(err.response));
   }
 
   function logout() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-    setUserState({
-      user: {},
-      token: "",
-    });
+    setUserState(initialState);
   }
 
   function getUserIssues() {
@@ -107,9 +104,9 @@ export default function UserProvider(props) {
   function getComments(id) {
     userAxios
       .get(`/api/comment/issue/${id}`)
-      .then(res => {
-        console.log(res)
-        setUserState(prevState => ({
+      .then((res) => {
+        console.log(res);
+        setUserState((prevState) => ({
           ...prevState,
           issueComments: res.data,
         }));

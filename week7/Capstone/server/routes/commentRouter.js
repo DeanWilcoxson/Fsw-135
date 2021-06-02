@@ -13,8 +13,9 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/issue/:issueID", (req, res, next) => {
+  console.log(req.params.issueID)
   console.log("router")
-  Comment.find({ issueId: req.params.issueId }, (err, comment) => {
+  Comment.find({ issueId: req.params.issueID }, (err, comment) => {
     if (err) {
       res.status(500);
       return next(err);
