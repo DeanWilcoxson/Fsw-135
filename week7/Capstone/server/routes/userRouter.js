@@ -12,15 +12,15 @@ router.get("/", (req, res, next) => {
   });
 });
 
-router.get('/:userID', (req, res, next) => {
-  User.findOne({_id: req.params.userID}, (err, users) => {
-    if(err){
-      res.status(500)
-      return next(err)
+router.get("/:userID", (req, res, next) => {
+  User.findOne({ _id: req.params.userID }, (err, users) => {
+    if (err) {
+      res.status(500);
+      return next(err);
     }
-    return res.status(200).send(users)
-  })
-})
+    return res.status(200).send(users);
+  });
+});
 
 router.post("/", (req, res, next) => {
   const newUser = new User(req.body);
